@@ -291,7 +291,18 @@ function closeCart() {
     body.style.overflow = "auto";
     updateAmount();
 }
+// Open & Close contact
+function openContact() {
+    showConnect();
+    document.querySelector('.modal-contact').classList.add('open');
+    body.style.overflow = "hidden";
+}
 
+function closeContact() {
+    document.querySelector('.modal-contact').classList.remove('open');
+    body.style.overflow = "auto";
+    updateAmount();
+}
 // Open Search Advanced
 document.querySelector(".filter-btn").addEventListener("click",(e) => {
     e.preventDefault();
