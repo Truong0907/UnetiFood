@@ -85,12 +85,15 @@
                             </div>
                             <span>Giỏ hàng</span>
                         </li>
-                        <li class="header-middle-right-item open" onclick="openContact()">
-                            <div class="contact-icon-menu">
-                                <i class="fa-solid fa-headset"></i>
-                            </div>
-                            <span>Liên Hệ</span>
+                        <li class="header-middle-right-item">
+                            <a href="lienhe.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                        <div class="contact-icon-menu">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                    <span>Liên Hệ</span>
+                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -581,10 +584,11 @@
                         <h3 class="widget-title">Liên kết</h3>
                         <ul class="widget-contact">
                             <li class="widget-contact-item">
-                                <a href="#contact-page" onclick="showContactPage()">
-                                    <i class="fa-regular fa-arrow-right"></i>
-                                    <span>Liên hệ</span>
-                                </a>
+                            <a href="#contact-page">
+                                 <i class="fa-regular fa-arrow-right"></i>
+                                 <span>Liên hệ</span>
+                            </a>
+
                             </li>
                             <li class="widget-contact-item">
                                 <a href="">
@@ -702,5 +706,49 @@
     <script src="./js/checkout.js"></script>
     <script src="./js/toast-message.js"></script>
     <script src="./js/contact.js"></script>
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const fullname = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const status = document.getElementById("statusMsg");
+
+  // Kiểm tra dữ liệu trống
+  if (!fullname || !email || !phone || !message) {
+    status.style.color = "red";
+    status.textContent = "❌ Vui lòng nhập đầy đủ thông tin.";
+    return;
+  }
+
+  // Kiểm tra định dạng email
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!emailPattern.test(email)) {
+    status.style.color = "red";
+    status.textContent = "❌ Email không hợp lệ.";
+    return;
+  }
+
+  // Kiểm tra định dạng số điện thoại
+  const phonePattern = /^(0[0-9]{9,10})$/;
+  if (!phonePattern.test(phone)) {
+    status.style.color = "red";
+    status.textContent = "❌ Số điện thoại không hợp lệ.";
+    return;
+  }
+
+  // Nếu hợp lệ → thông báo gửi thành công
+  status.style.color = "green";
+  status.textContent = "✅ Cảm ơn bạn! Thông tin của bạn đã được gửi tới quản trị viên.";
+
+  // Có thể gửi dữ liệu tới server thật ở đây (nếu có backend)
+  // fetch('/api/contact', { method: 'POST', body: JSON.stringify({ fullname, email, phone, message }) });
+
+  this.reset();
+});
+</script>
+
 </body>
 </html>

@@ -1,0 +1,197 @@
+/* ========== Reset cơ bản ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+/* ========== Toàn trang ========== */
+body {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* ========== Animation nền nhẹ nhàng ========== */
+@keyframes backgroundGlow {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #fff4f4;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+body {
+  animation: backgroundGlow 6s infinite alternate;
+}
+
+/* ========== Container form ========== */
+.contact-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 50px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(184, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Hiệu ứng form xuất hiện */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Tiêu đề ========== */
+.contact-section h2 {
+  text-align: center;
+  color: #b80000;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+  position: relative;
+  animation: fadeTitle 1s ease forwards;
+}
+
+@keyframes fadeTitle {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========== Nhóm form ========== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #b80000;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* ========== Input và Textarea ========== */
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #333;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+/* Hiệu ứng khi focus */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #b80000;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(184, 0, 0, 0.3);
+  outline: none;
+  transform: scale(1.01);
+}
+
+/* ========== Nút gửi ========== */
+.btn-send {
+  background: linear-gradient(135deg, #b80000, #e00000);
+  color: #fff;
+  font-weight: 600;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.35s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(184, 0, 0, 0.25);
+}
+
+/* Hiệu ứng hover */
+.btn-send:hover {
+  background: linear-gradient(135deg, #d10000, #ff4040);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(184, 0, 0, 0.35);
+}
+
+/* Khi nhấn xuống */
+.btn-send:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(184, 0, 0, 0.25);
+}
+
+/* ========== Trạng thái gửi ========== */
+.status {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+  min-height: 20px;
+  animation: fadeIn 1s ease;
+}
+.logo
+{
+    width: 800px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.logo-container
+{
+     flex: 1;
+  text-align: center;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 30px 25px;
+  }
+
+  .btn-send {
+    font-size: 15px;
+  }
+}
